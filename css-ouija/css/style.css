@@ -1,0 +1,455 @@
+@charset "UTF-8";
+@font-face {
+  font-family: Howdy;
+  font-weight: 100;
+  src: local(※), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/383755/CaptainHowdy.woff) format("woff");
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  background: -webkit-radial-gradient(center, ellipse contain, #373737, #111), #111;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  font-family: "Josefin Sans", sans-serif;
+  color: #453623;
+  background-size: 70vw 70vw;
+  background-position: 50% 40%, center;
+  background-repeat: no-repeat;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+body::-webkit-scrollbar, body::-webkit-scrollbar:horizontal {
+  width: 0px;
+  height: 0px;
+}
+body:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url("https://puu.sh/rlDnA/a5e2c36b2a.jpg");
+  background-size: cover;
+  opacity: 0;
+  -webkit-filter: blur(5px);
+  -webkit-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+}
+body:hover .board {
+  -webkit-transform: rotateX(10deg);
+          transform: rotateX(10deg);
+}
+body .board {
+  width: 600px;
+  height: 400px;
+  background-color: #edccab;
+  padding-right: 40px;
+  position: relative;
+  box-shadow: inset 0px 0px 150px 50px #aa8557, 0px 3px 0px #2a1a09;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  -webkit-transform: rotateX(5deg);
+          transform: rotateX(5deg);
+  z-index: 0;
+}
+body .board:hover {
+  -webkit-transform: rotateX(10deg);
+          transform: rotateX(10deg);
+  box-shadow: inset 0px 0px 150px 50px #aa8557, 0px 5px 0px #3f260e;
+}
+body .board .bottom, body .board .numbers {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 20px;
+  font-size: 2em;
+  font-weight: 900;
+  letter-spacing: 5px;
+}
+body .board .numbers {
+  bottom: 65px;
+  display: block;
+  width: 100%;
+  font-size: 3.35em;
+  text-align: center;
+  font-family: "Howdy";
+  letter-spacing: 5px;
+  margin-left: 10px;
+  font-weight: 100;
+}
+body .board .corner {
+  display: block;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  border-radius: 0px 0px 75px 0px;
+  background: url("data:image/svg+xml,%3Csvg%20version%3D%271.1%27%20id%3D%27Layer_1%27%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20xmlns%3Axlink%3D%27http%3A//www.w3.org/1999/xlink%27%20x%3D%270px%27%20y%3D%270px%27%0A%20%20%20%20%20width%3D%2710px%27%20height%3D%2710px%27%20viewBox%3D%270%200%2010%2010%27%20enable-background%3D%27new%200%200%2010%2010%27%20xml%3Aspace%3D%27preserve%27%3E%0A%3Crect%20fill%3D%27#edccab%27%20width%3D%2710%27%20height%3D%275%27/%3E%0A%3C/svg%3E"), #453623;
+  background-size: 3px;
+  overflow: hidden;
+}
+body .board .corner:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 80%;
+  height: 90%;
+  box-shadow: 0px 0px 30px 20px #453623;
+  background: #453623;
+  border-radius: 0px 0px 75px 0px;
+}
+body .board .corner span {
+  font-size: 2.25em;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+body .board .corner.text {
+  overflow: visible;
+  background: transparent;
+}
+body .board .corner.text:nth-of-type(3) {
+  left: auto;
+  right: 0;
+}
+body .board .corner.text:nth-of-type(3) span {
+  position: absolute;
+  left: auto;
+  right: 120px;
+  top: 25px;
+}
+body .board .corner.text span {
+  position: absolute;
+  left: 125px;
+  top: 25px;
+}
+body .board .corner.text:before {
+  display: none;
+}
+body .board .corner.small {
+  width: 50px;
+  height: 40px;
+}
+body .board .corner.small:before {
+  width: 70%;
+  height: 90%;
+}
+body .board .corner.smaller {
+  width: 40px;
+  height: 30px;
+}
+body .board .corner.smaller:before {
+  width: 70%;
+  height: 90%;
+}
+body .board .corner.smallest {
+  width: 35px;
+  height: 30px;
+}
+body .board .corner.top-left {
+  left: 0;
+  top: 0;
+}
+body .board .corner.top-left.small {
+  left: 55px;
+}
+body .board .corner.top-left.smaller {
+  top: 80px;
+}
+body .board .corner.top-right {
+  right: 0;
+  top: 0;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+body .board .corner.top-right.small {
+  right: 55px;
+}
+body .board .corner.top-right.smaller {
+  top: 80px;
+}
+body .board .corner.bottom-left {
+  bottom: 0;
+  left: 0;
+  -webkit-transform: scaleY(-1);
+          transform: scaleY(-1);
+}
+body .board .corner.bottom-left.small {
+  left: 55px;
+}
+body .board .corner.bottom-left.smaller {
+  bottom: 80px;
+}
+body .board .corner.bottom-right {
+  bottom: 0;
+  right: 0;
+  -webkit-transform: scaleX(-1) scaleY(-1);
+          transform: scaleX(-1) scaleY(-1);
+}
+body .board .corner.bottom-right.small {
+  right: 55px;
+}
+body .board .corner.bottom-right.smaller {
+  bottom: 80px;
+}
+body .board:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/purty-wood.png");
+  -webkit-filter: sepia(1);
+}
+body .board .letterwrap {
+  width: 100%;
+  min-width: 400px;
+  -webkit-transform: rotate(-37deg);
+          transform: rotate(-37deg);
+}
+body .board .letterwrap span {
+  font-family: "Howdy";
+  font-weight: 500;
+  font-size: 50px;
+  position: absolute;
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
+  width: 10px;
+  height: 460px;
+}
+body .board .topline span:nth-of-type(9) {
+  margin-left: 5px;
+  margin-top: 5px;
+}
+body .board .topline span:nth-of-type(1) {
+  margin-left: -7px;
+}
+body .board .topline span:nth-of-type(1) {
+  -webkit-transform: rotate(5deg);
+          transform: rotate(5deg);
+}
+body .board .topline span:nth-of-type(2) {
+  -webkit-transform: rotate(10deg);
+          transform: rotate(10deg);
+}
+body .board .topline span:nth-of-type(3) {
+  -webkit-transform: rotate(15deg);
+          transform: rotate(15deg);
+}
+body .board .topline span:nth-of-type(4) {
+  -webkit-transform: rotate(20deg);
+          transform: rotate(20deg);
+}
+body .board .topline span:nth-of-type(5) {
+  -webkit-transform: rotate(25deg);
+          transform: rotate(25deg);
+}
+body .board .topline span:nth-of-type(6) {
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
+}
+body .board .topline span:nth-of-type(7) {
+  -webkit-transform: rotate(35deg);
+          transform: rotate(35deg);
+}
+body .board .topline span:nth-of-type(8) {
+  -webkit-transform: rotate(40deg);
+          transform: rotate(40deg);
+}
+body .board .topline span:nth-of-type(9) {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+body .board .topline span:nth-of-type(10) {
+  -webkit-transform: rotate(50deg);
+          transform: rotate(50deg);
+}
+body .board .topline span:nth-of-type(11) {
+  -webkit-transform: rotate(55deg);
+          transform: rotate(55deg);
+}
+body .board .topline span:nth-of-type(12) {
+  -webkit-transform: rotate(60deg);
+          transform: rotate(60deg);
+}
+body .board .topline span:nth-of-type(13) {
+  -webkit-transform: rotate(65deg);
+          transform: rotate(65deg);
+}
+body .board .bottomline {
+  padding-top: 4em;
+  margin-left: -2.6em;
+  -webkit-transform: rotate(1deg);
+          transform: rotate(1deg);
+}
+body .board .bottomline span:nth-of-type(11) {
+  margin-left: 5px;
+  margin-top: 5px;
+}
+body .board .bottomline span:nth-of-type(12) {
+  margin-left: 5px;
+  margin-top: 5px;
+}
+body .board .bottomline span:nth-of-type(13) {
+  margin-left: 5px;
+  margin-top: 5px;
+}
+body .board .bottomline span:nth-of-type(1) {
+  -webkit-transform: rotate(5deg);
+          transform: rotate(5deg);
+}
+body .board .bottomline span:nth-of-type(2) {
+  -webkit-transform: rotate(10deg);
+          transform: rotate(10deg);
+}
+body .board .bottomline span:nth-of-type(3) {
+  -webkit-transform: rotate(15deg);
+          transform: rotate(15deg);
+}
+body .board .bottomline span:nth-of-type(4) {
+  -webkit-transform: rotate(20deg);
+          transform: rotate(20deg);
+}
+body .board .bottomline span:nth-of-type(5) {
+  -webkit-transform: rotate(25deg);
+          transform: rotate(25deg);
+}
+body .board .bottomline span:nth-of-type(6) {
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
+}
+body .board .bottomline span:nth-of-type(7) {
+  -webkit-transform: rotate(35deg);
+          transform: rotate(35deg);
+}
+body .board .bottomline span:nth-of-type(8) {
+  -webkit-transform: rotate(40deg);
+          transform: rotate(40deg);
+}
+body .board .bottomline span:nth-of-type(9) {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+body .board .bottomline span:nth-of-type(10) {
+  -webkit-transform: rotate(50deg);
+          transform: rotate(50deg);
+}
+body .board .bottomline span:nth-of-type(11) {
+  -webkit-transform: rotate(55deg);
+          transform: rotate(55deg);
+}
+body .board .bottomline span:nth-of-type(12) {
+  -webkit-transform: rotate(60deg);
+          transform: rotate(60deg);
+}
+body .board .bottomline span:nth-of-type(13) {
+  -webkit-transform: rotate(65deg);
+          transform: rotate(65deg);
+}
+body .planchette {
+  position: absolute;
+  z-index: 3;
+  left: -10%;
+  top: 50%;
+}
+body .planchette .tophalf {
+  display: block;
+  background: rgba(255, 255, 255, 0.2);
+  width: 50px;
+  height: 50px;
+  z-index: 2;
+  border-radius: 500%;
+  box-shadow: 0px 0px 0px 12px #ece5d5, 0px -7.5px 0px 10px #ece5d5, 0px 7.5px 0px 10px #ece5d5, 0px 5px 0px 15px #ece5d5, 0px 20px 0px 20px #ece5d5, 17px 37px 0px 15px #ece5d5, -17px 37px 0px 15px #ece5d5, 16px 42px 0px 15px #62522d, -16px 42px 0px 15px #62522d, inset 0px 5px 0px #62522d, 0px -85px 0px -23px #ece5d5;
+  position: relative;
+}
+body .planchette .tophalf:after {
+  content: '';
+  position: absolute;
+  width: 90px;
+  height: 40px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: -40px;
+  background: #ece5d5;
+}
+body .planchette .tophalf:before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 30px 60px 30px;
+  border-color: transparent transparent #ece5d5 transparent;
+  top: -60px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+body .planchette .side {
+  height: 120px;
+  width: 5px;
+  top: -60px;
+  position: absolute;
+  background: #ece5d5;
+  z-index: 3;
+  left: 50%;
+  -webkit-transform-origin: 50% 0%;
+          transform-origin: 50% 0%;
+  -webkit-transform: translateX(-50%) rotate(-25.5deg);
+          transform: translateX(-50%) rotate(-25.5deg);
+  border-radius: 40px;
+}
+body .planchette .side:nth-of-type(2) {
+  -webkit-transform: translateX(-50%) rotate(25.5deg);
+          transform: translateX(-50%) rotate(25.5deg);
+}
+body .wrap {
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  -webkit-transform: translate3d(0, 0, 100px);
+}
+body .boardwrap {
+  width: 600px;
+  height: 400px;
+  position: relative;
+}
+
+.ghost:before {
+  -webkit-filter: blur(0);
+  opacity: 0.1;
+  -webkit-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+}

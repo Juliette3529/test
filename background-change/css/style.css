@@ -1,0 +1,74 @@
+html {
+  background: #ddd;
+}
+
+.box {
+  width: 400px;
+  background: #123;
+  margin: 48px auto;
+  padding: 16px;
+  position: relative;
+}
+
+.box > .img {
+  width: 400px;
+  height: 300px;
+  opacity: .5;
+  -o-object-fit: cover;
+     object-fit: cover;
+    animation: mymove 10s linear infinite;
+    background-size:cover;
+    background-position: 0px 0px;
+}
+
+.box::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  left: 40px;
+  bottom: 47px;
+  border: solid 4px white;
+  border-bottom: 0;
+}
+*{
+    background-size:cover !important;
+}
+
+.text {
+  color: white;
+  position: absolute;
+  text-align: center;
+  bottom: 40px;
+  left: 40px;
+  right: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: 'fjalla one', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.text > div {
+  width: 2000px;
+  margin-left: -820px;
+}
+
+.innertext::before,
+.innertext::after {
+  content: '';
+  display: inline-block;
+  width: 600px;
+  height: 4px;
+  background: white;
+  vertical-align: middle;
+}
+
+.innertext::before {
+  margin-right: 16px;
+}
+
+.innertext::after {
+  margin-left: 16px;
+}

@@ -1,0 +1,130 @@
+html, body, * {
+	padding: 0;
+	margin: 0;
+	background-image:url('css/bg.jpg');
+	background-size:cover;
+}
+body {
+	color: #333;
+	background: #eee;
+}
+
+.board {
+	position: relative;
+	padding-bottom: 42px;
+	margin: 0 auto;
+	margin-top: 100px;
+	width: 235px;
+	height: 235px;
+	font-size: 0;
+	background: #555;
+}
+.cells {
+	margin-bottom: 20px;
+}
+.cell {
+	position: relative;
+	display: inline-block;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	width: 75px;
+	height: 75px;
+	border-radius: 5px;
+	background: #eee;
+	cursor: default;
+}
+.cell:nth-child(3n) {
+	margin-right: 0;
+}
+
+.x:after,
+.o:after {
+	position: absolute;
+	display: block;
+	width: 75px;
+	height: 75px;
+	font-family: "FontAwesome";
+	font-size: 78px;
+	line-height: 70px;
+	text-align: center;
+	color: #555;
+	
+	cursor: default;
+}
+.x:after {
+	content: "\f00d";
+}
+.o:after {
+	content: "\f10c";
+	font-size: 66px;
+	line-height: 75px;
+}
+.highlighted:after {
+	text-shadow: 0px 0px 10px rgba(255, 0, 0, 0.9);
+}
+
+.message-block {
+	margin: 0 auto;
+	padding-bottom: 10px;
+	width: 235px;
+	font-size: 28px;
+	line-height: 32px;
+	text-align: center;
+	font-weight: 800;
+	color: #555;
+	text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+	background: #eee;
+}
+
+.modal-block {
+	position: absolute;
+	top: 300px;
+	left: 50%;
+	margin-left: -148px;
+	padding: 20px;
+	width: 250px;
+	height: 76px;
+	font-size: 0;
+	text-align: center;
+	border-radius: 10px;
+	border: 3px solid #666;
+	background: #e1e1e1;
+}
+.modal-block p {
+	position: relative;
+	top: 12px;
+	display: inline-block;
+	font-family: "Tahoma";
+	font-size: 36px;
+	line-height: 20px;
+}
+.choice {
+	position: relative;
+	display: inline-block;
+	margin-left: 12px;
+	margin-right: 12px;
+	width: 75px;
+	height: 75px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+.choice-x:after,
+.choice-o:after {
+	position: absolute;
+	display: block;
+	bottom: 12px;
+	width: 75px;
+	height: 75px;
+	font-family: "FontAwesome";
+	font-size: 78px;
+	color: #fff;
+	text-shadow: 0px 0px 12px rgba(0, 0, 0, 1);
+}
+.choice-x:after {
+	content: "\f00d";
+}
+.choice-o:after {
+	content: "\f10c";
+	bottom: 2px;
+	font-size: 66px;
+}

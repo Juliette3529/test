@@ -1,0 +1,360 @@
+$number : 13;
+$cream : #ece5d5;
+$wood : #edccab;
+$black : #453623;
+$bg : #111;
+$sans : 'Josefin Sans', sans-serif;
+
+
+@font-face{
+    font-family:Howdy;
+    font-weight:100;
+    src:local(※), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/383755/CaptainHowdy.woff) format('woff');
+}
+
+$serif : 'Howdy';
+
+body{
+  &::-webkit-scrollbar, &::-webkit-scrollbar:horizontal {
+    width: 0px;
+    height:0px;
+  }
+  &:before{
+    content:'';
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    background-image:url('https://puu.sh/rlDnA/a5e2c36b2a.jpg');
+    background-size:cover;
+    opacity:0;
+    -webkit-filter:blur(5px);
+    transition:1s ease-in-out;
+  }
+  width:100vw;
+  height:100vh;
+  background:-webkit-radial-gradient(center, ellipse contain, lighten($bg, 15%), $bg), $bg;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  font-family:$sans;
+  color:$black;
+  background-size:70vw 70vw;
+  background-position:50% 40%, center;
+  background-repeat:no-repeat;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  &:hover{
+    .board{
+      transform:rotateX(10deg);
+    }
+  }
+  .board{
+    width:600px;
+    height:400px;
+    background-color:$wood;
+    padding-right:40px;
+    position:relative;
+    box-shadow:inset 0px 0px 150px 50px lighten($black, 30%), 0px 3px 0px darken($wood, 70%);
+    transition:0.5s ease-in-out;
+    transform:rotateX(5deg);
+    z-index:0;
+    
+    &:hover{
+      transform:rotateX(10deg);
+      box-shadow:inset 0px 0px 150px 50px lighten($black, 30%), 0px 5px 0px darken($wood, 65%);
+    }
+    .bottom, .numbers{
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:20px;
+      font-size:2em;
+      font-weight:900;
+      letter-spacing:5px;
+      
+    }
+    .numbers{
+      bottom:65px;
+      display:block;
+      width:100%;
+      font-size:3.35em;
+      text-align:center;
+      font-family:$serif;
+      letter-spacing:5px;
+      margin-left:10px;
+      font-weight:100;
+    }
+    .corner{
+      display:block;
+      width:90px;
+      height:90px;
+      position:absolute;
+      border-radius:0px 0px 75px 0px;
+      background:url("data:image/svg+xml,%3Csvg%20version%3D%271.1%27%20id%3D%27Layer_1%27%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20xmlns%3Axlink%3D%27http%3A//www.w3.org/1999/xlink%27%20x%3D%270px%27%20y%3D%270px%27%0A%20%20%20%20%20width%3D%2710px%27%20height%3D%2710px%27%20viewBox%3D%270%200%2010%2010%27%20enable-background%3D%27new%200%200%2010%2010%27%20xml%3Aspace%3D%27preserve%27%3E%0A%3Crect%20fill%3D%27#edccab%27%20width%3D%2710%27%20height%3D%275%27/%3E%0A%3C/svg%3E"), $black;
+      background-size:3px;
+      overflow:hidden;
+
+      &:before{
+        content:'';
+        position:absolute;
+        left:0;
+        top:0;
+        width:80%;
+        height:90%;
+        box-shadow:0px 0px 30px 20px $black;
+        background:$black;
+        border-radius:0px 0px 75px 0px;
+       
+      }
+      span{
+          font-size:2.25em;
+          font-weight:900;
+          letter-spacing:3px;
+      }
+      &.text{
+        overflow:visible;
+        background:transparent;
+        &:nth-of-type(3){
+          left:auto;
+          right:0;
+          span{
+          position:absolute;
+          left:auto;
+          right:120px;
+          top:25px;
+          }
+        }
+         span{
+          position:absolute;
+          left:125px;
+          top:25px;
+           
+        }
+        &:before{
+          display:none;
+          
+        }
+        
+      }
+      &.small{
+        width:50px;
+        height:40px;
+        &:before{
+          width:70%;
+          height:90%;
+        }
+      }
+       &.smaller{
+        width:40px;
+        height:30px;
+        
+        &:before{
+          width:70%;
+          height:90%;
+        }
+      }
+      &.smallest{
+        width:35px;
+        height:30px;
+      }
+
+      &.top-left{
+        left:0;
+        top:0;
+        &.small{
+          left:55px;
+        }
+        &.smaller{
+          top:80px;
+        }
+
+      }
+      &.top-right{
+        right:0;
+        top:0;
+        transform:scaleX(-1);
+        &.small{
+          right:55px;
+        }
+        &.smaller{
+          top:80px;
+        }
+      }
+      &.bottom-left{
+        bottom:0;
+        left:0;
+        transform:scaleY(-1);
+        &.small{
+          left:55px;
+        }
+        &.smaller{
+          bottom:80px;
+        }
+      }
+      &.bottom-right{
+        bottom:0;
+        right:0;
+        transform:scaleX(-1) scaleY(-1);
+        &.small{
+          right:55px;
+        }
+        &.smaller{
+          bottom:80px;
+        }
+      }
+    }
+    &:before{
+      content:'';
+      width:100%;
+      height:100%;
+      position:absolute;
+      left:0;
+      top:0;
+      background-image: url("https://www.transparenttextures.com/patterns/purty-wood.png");
+      -webkit-filter:sepia(1);
+    }
+    .letterwrap{
+      width:100%;
+      min-width:400px;
+      transform:rotate(-37deg);
+      span{
+        font-family:$serif;
+        font-weight:500;
+        font-size:50px;
+        position:absolute;
+        transform-origin:bottom center;
+        width:10px;
+        height:460px;
+        
+      }
+    }
+    .topline{
+      span{
+        &:nth-of-type(9){
+          margin-left:5px;
+          margin-top:5px;
+        }
+        &:nth-of-type(1){
+          margin-left:-7px;
+        }
+        @for $i from 1 through $number {
+        &:nth-of-type(#{$i}) {
+          transform:rotate(#{$i *5}deg);
+          }
+        }
+      }
+    }
+    .bottomline{
+      padding-top:4em;
+      margin-left:-2.6em;
+      transform:rotate(1deg);
+      span{
+        &:nth-of-type(11){
+          margin-left:5px;
+          margin-top:5px;
+        }
+         &:nth-of-type(12){
+          margin-left:5px;
+          margin-top:5px;
+        }
+         &:nth-of-type(13){
+          margin-left:5px;
+          margin-top:5px;
+        }
+        @for $i from 1 through $number {
+        &:nth-of-type(#{$i}) {
+          transform:rotate(#{$i *5}deg);
+          }
+        }
+      }
+    }
+  }
+  .planchette{
+    position:absolute;
+    z-index:3;
+    left:-10%;
+    top:50%;
+    
+    .tophalf{
+      display:block;
+      background:rgba(255,255,255,0.2);
+      width:50px;
+      height:50px;
+      z-index:2;
+      border-radius:500%;
+      box-shadow:0px 0px 0px 12px $cream, 0px -7.5px 0px 10px $cream, 0px 7.5px 0px 10px $cream, 0px 5px 0px 15px $cream, 0px 20px 0px 20px $cream, 17px 37px 0px 15px $cream, -17px 37px 0px 15px $cream, 16px 42px 0px 15px darken($cream, 60%), -16px 42px 0px 15px darken($cream, 60%), inset 0px 5px 0px darken($cream, 60%), 0px -85px 0px -23px $cream;
+      position:relative;
+      &:after{
+        content:'';
+        position:absolute;
+        width:90px;
+        height:40px;
+        left:50%;
+        transform:translateX(-50%);
+        bottom:-40px;
+        background:$cream;
+      }
+      &:before{
+        content:'';
+        position:absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 30px 60px 30px;
+        border-color: transparent transparent $cream transparent;
+        top:-60px;
+        left:50%;
+        transform:translateX(-50%);
+
+
+      }
+    }
+    .side{
+      height:120px;
+      width:5px;
+      top:-60px;
+      position:absolute;
+      background:$cream;
+      z-index:3;
+      left:50%;
+      transform-origin:50% 0%;
+      transform:translateX(-50%) rotate(-25.5deg);
+      border-radius:40px;
+      &:nth-of-type(2){
+       transform:translateX(-50%) rotate(25.5deg); 
+      }
+    }
+  }
+  .wrap{
+    position:absolute;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    left:0;
+    top:0;
+    -webkit-transform: translate3d(0,0,100px);
+  }
+    .boardwrap{
+    width:600px;
+    height:400px;
+    position:relative;
+  }
+}
+
+
+.ghost{
+  &:before{
+    -webkit-filter:blur(0);
+    opacity:0.1;
+    transition:1s ease-in-out;
+  }
+}
+

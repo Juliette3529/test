@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Text in a border</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+      <link rel="stylesheet" href="css/style.css">
+	<script src="./js/jquery.js"></script>
+	<script src="./js/jquery.bgswitcher.js"></script>
+  
+</head>
+
+<body>
+  <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+
+<div class='box'>
+    <div class="img"></div>
+  
+  <div class='text'>
+    <div>
+      <span class='innertext'>La vraie Code-Academie</span>
+    </div>
+  </div>
+</div>
+  <script>
+   $(document).ready(function(){
+
+$(".box").bgswitcher({
+images: ["img/13.JPG","img/14.JPG","img/15.JPG","img/16.JPG","img/17.JPG"], 
+effect: "fade", 
+interval: 5000, 
+loop: true, 
+shuffle: true, 
+duration: 5000, 
+easing: "swing",
+});
+       $(".img").bgswitcher({
+images: ["img/1.JPG", "img/2.JPG", "img/3.JPG", "img/4.JPG", "img/4.JPG", "img/5.JPG", "img/6.JPG", "img/7.JPG", "img/8.JPG", "img/9.JPG", "img/10.JPG", "img/11.JPG", "img/12.JPG"], 
+effect: "fade", 
+interval: 5000, 
+loop: true, 
+shuffle: true, 
+duration: 5000, 
+easing: "swing",
+});
+       
+
+});
+    </script>
+  
+</body>
+</html>

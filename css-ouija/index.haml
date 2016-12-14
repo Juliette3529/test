@@ -1,0 +1,40 @@
+- @letters1 = ['a','b','c','d','e','f','g','h','i','j','k','l','m']; 
+
+- @letters2 = ['n','o','p','q','r','s','t','u','v','w','x','y','z'];
+.wrap
+ .boardwrap
+  .planchette
+   .tophalf
+   .side
+   .side
+  
+.board
+ .corner.top-left
+ .corner.top-left.small
+ .corner.text
+  %span NO
+ .corner.top-right
+ .corner.top-right.small
+ .corner.text
+  %span YES
+ .corner.bottom-left
+ .corner.bottom-left.small
+ .corner.bottom-right
+ .corner.bottom-right.small
+ .corner.bottom-left.smaller
+ .corner.bottom-right.smaller
+ .corner.top-right.smaller
+ .corner.top-left.smaller
+ .corner.bottom-left.smallest
+ .corner.bottom-right.smallest
+ .corner.top-right.smallest
+ .corner.top-left.smallest
+ .letterwrap
+  .topline
+   - @letters1.each do |letters1|
+    %span #{letters1}
+  .bottomline
+   - @letters2.each do |letters2|
+    %span #{letters2}
+ %div.numbers 1234567890
+ %div.bottom GOOD BYE
